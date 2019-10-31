@@ -1,0 +1,19 @@
+/*------------------------------------*\
+    MASK
+\*------------------------------------*/
+/**
+ * MASK............This document defines the styles of mask
+ */
+
+@import "./variable.scss";
+
+.mask{
+    @include size(100%, 100%);
+    background: rgba($black, .56);
+    position: fixed; 
+    top:0px; 
+    left:0px;
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+    z-index: 99;
+}

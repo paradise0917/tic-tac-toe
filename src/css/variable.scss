@@ -1,0 +1,60 @@
+/*------------------------------------*\
+    VARIABLE
+\*------------------------------------*/
+/**
+ * VARIABLE : This document defines the variables used by this app
+ * FONT-SIZE...........Define the font-size information used by the app
+ * COLOR...............Define the color information used by the app
+ * MIXIN...............Define the css settings commonly used by the app
+ * OTHERS..............Define other virable used by the app
+ */
+
+
+/*------------------------------------*\
+    FONT-SIZE
+\*------------------------------------*/
+$font-m: 13px;
+$font-xxxl: $font-m * 20;
+$font-xxl: $font-m * 2.8;
+$font-xl: $font-m * 1.8;
+$font-l: $font-m * 1.4;
+$font-ml: $font-m * 1.2;
+$font-s: $font-m * 0.8;
+
+
+/*------------------------------------*\
+    COLOR
+\*------------------------------------*/
+$white: #fff;
+$white-sub: #eee;
+$white-sub-2: #e6e6e6;
+$white-piano: #ddd;
+$black: #000;
+$black-sub: #333;
+$black-piano: #333;
+$black-toolbar-icon: #313538; 
+$black-toolbar-icon-dark: #393939;
+$gray: #aaa;
+$gray-light: #ccc;
+
+$orange: #ec8c69;
+
+$color-secondary: #ec8c69;
+
+
+/*------------------------------------*\
+    MIXIN
+\*------------------------------------*/
+@mixin size($w, $h) {
+    width: $w;
+    height: $h;
+}
+@mixin min-size($w, $h) {
+    min-width: $w;
+    min-height: $h;
+}
+
+
+/*------------------------------------*\
+    OTHERS
+\*------------------------------------*/

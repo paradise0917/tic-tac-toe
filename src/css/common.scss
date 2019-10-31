@@ -1,0 +1,69 @@
+/*------------------------------------*\
+    COMMON
+\*------------------------------------*/
+/**
+ * COMMON............This document defines the styles commonly used by this app
+ * FLEXBOX...........Flexbox related style
+ * STATE.............Specific state style
+ */
+
+@import "./variable.scss";
+
+/*------------------------------------*\
+    FLEXBOX
+\*------------------------------------*/
+.flex{
+    display: flex;
+}
+.flex-hor-center{
+    justify-content: center;
+}
+.flex-hor-between{
+    justify-content: space-between;
+}
+.flex-hor-right{
+    justify-content: flex-end;
+}
+.flex-ver-center{
+    align-items: center;
+}
+.flex-ver-bottom{
+    align-items: flex-end;
+}
+.flex-flow-col{                                                                                                                          
+    flex-flow: column;
+}
+.flex-wrap{
+    flex-wrap: wrap;
+}
+
+/*------------------------------------*\
+    
+\*------------------------------------*/
+.wrapper{
+    @include size(100%, 100%);
+    max-width: 1200px; 
+}
+
+/*------------------------------------*\
+    STATE
+\*------------------------------------*/
+.is-hidden{
+    display: none !important;
+}
+
+.is-visible{
+    display: initial;
+}
+
+.is-flex{
+    display: flex !important;
+}
+
+.is-hidden-opacity{
+    @include size(0px, 0px);
+    position: absolute; 
+    top: 0px;
+    z-index: -1 !important;
+    opacity: 0 !important;
+}

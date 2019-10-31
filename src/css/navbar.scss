@@ -1,0 +1,25 @@
+/*------------------------------------*\
+    NAVBAR
+\*------------------------------------*/
+/**
+ * NAVBAR............This document defines the styles of navbar
+ */
+
+ @import "./variable.scss";
+
+
+ .navbar{
+    @include size(100%, 50px);
+    box-shadow: 0 4px 12px 0 rgba($black, .05);
+    padding: 0px 20px;
+    ul{ 
+        @include size(100%, 50px);
+        li{
+            margin-right: 20px;
+        }
+    }
+    .title{
+        font-weight: bolder;
+        
+    }
+ }
