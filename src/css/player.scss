@@ -1,0 +1,67 @@
+/*------------------------------------*\
+    PLAYER
+\*------------------------------------*/
+/**
+ * PLAYER............This document defines the styles of player
+ */
+
+@import "./variable.scss";
+
+.player{
+    @include size(80%, 80vh);
+    @include max-size(300px, 350px);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 30px 3%;
+    background-color: $white;
+    border-radius: 3px;
+    z-index: 101;
+    .title{
+        font-size: $font-xxl;
+        color: $blue-dark;
+        margin: 10px auto 20px auto;
+        // color: transparent;
+        // background: linear-gradient($orange-dark, $orange);
+        // -webkit-background-clip: text;
+        //         background-clip: text;
+    }
+    .btn-start{
+        @include size(85%, 30px);
+        border: solid 1px $gray-light;
+        border-radius: 20px;
+        margin: 30px auto;
+        color: $blue-dark;
+        font-weight: bolder;
+        font-family: "Itim", cursive;
+        // background-image: liner-gradient(135deg, $orange-dark 0%, $orange 70%, $yellow 100%);
+    }
+    .player-name{
+        @include size(85%, 35px);
+        border-bottom: solid 1px $gray-light;
+        margin: 10px 0px;
+        padding: 5px;
+        input[type=textbox]{
+            border: none;
+            background-color: transparent;
+        }
+        input[type=textbox]:focus{
+            outline: none;
+        }
+    }
+    .icon{
+        @include size(35px, 35px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0px 5px 0px 5px;
+        path{
+            fill: $black-sub;
+        }  
+    }
+    .icon-first{
+        margin-top: 3px;
+        margin-left: 8px;
+    }
+}

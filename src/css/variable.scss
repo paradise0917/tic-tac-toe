@@ -28,16 +28,26 @@ $font-s: $font-m * 0.8;
 $white: #fff;
 $white-sub: #eee;
 $white-sub-2: #e6e6e6;
-$white-piano: #ddd;
 $black: #000;
 $black-sub: #333;
 $black-piano: #333;
 $black-toolbar-icon: #313538; 
 $black-toolbar-icon-dark: #393939;
-$gray: #aaa;
-$gray-light: #ccc;
+$gray: #91A2AB;
+$gray-light: #D6E6EA;
 
-$orange: #ec8c69;
+$orange-dark: #FE6F4E;
+$orange: #FE954E;
+$yellow: #FBD06A;
+
+$green: rgb(46,167,192);
+$blue: rgb(46,115,202);
+$blue-dark: #4A6884;
+
+
+$bk-color-first: #FFF9F2;
+$bk-color-second: #FEE7DC;
+$bk-color-third: #FDD6D1;
 
 $color-secondary: #ec8c69;
 
@@ -52,6 +62,10 @@ $color-secondary: #ec8c69;
 @mixin min-size($w, $h) {
     min-width: $w;
     min-height: $h;
+}
+@mixin max-size($w, $h) {
+    max-width: $w;
+    max-height: $h;
 }
 
 

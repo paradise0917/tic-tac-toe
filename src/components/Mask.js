@@ -6,15 +6,10 @@ import "../css/mask.scss";
 class Mask extends Component {
 
     static contextType = AppContext;
-    constructor(props) {
-        super(props);
-    };
 
 	render(){
         return (
-            <div className={this.context.showMask === true ? "mask" : "is-hidden-opacity"}>
-            
-            </div>
+            <div className={this.context.maskVisibility === true ? "mask" : "is-hidden-opacity"}></div>
         );
 	}
 }

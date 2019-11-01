@@ -9,6 +9,17 @@
 
 @import "./variable.scss";
 
+body{
+    background-image: linear-gradient(135deg, $bk-color-first 0%, $bk-color-second 50%, $bk-color-third 100%);
+}
+
+hr{
+    @include size(100%, 1px);
+    border: none;
+    background-color: $white-sub-2;
+    margin: 20px auto;
+}
+
 /*------------------------------------*\
     FLEXBOX
 \*------------------------------------*/
@@ -35,6 +46,20 @@
 }
 .flex-wrap{
     flex-wrap: wrap;
+}
+
+/*------------------------------------*\
+    BUTTON
+\*------------------------------------*/
+button{
+    transition: transform 0.2s ease-in-out;
+    cursor: pointer;
+}
+button:hover{
+    transform: translate(2px, 2px);
+}
+button:focus{
+    outline: none;
 }
 
 /*------------------------------------*\

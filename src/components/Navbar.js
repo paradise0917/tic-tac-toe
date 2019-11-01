@@ -10,7 +10,7 @@ class Navbar extends Component {
             <div className="navbar flex flex-hor-center">
                 <div className="wrapper">
                     <ul className="flex flex-ver-center">
-                        <li><a><span className="title">Tic Toc Toe</span></a></li>
+                        <li><a><span className="title">Tic Tac Toe</span></a></li>
                         <li><a>Game</a></li>
                         <li><a>Rank</a></li>
                     </ul>

@@ -10,6 +10,7 @@
 
  .navbar{
     @include size(100%, 50px);
+    background-color: rgba($white, 0.5);
     box-shadow: 0 4px 12px 0 rgba($black, .05);
     padding: 0px 20px;
     ul{ 
