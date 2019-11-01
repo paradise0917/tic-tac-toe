@@ -1,0 +1,77 @@
+/*------------------------------------*\
+    GAME
+\*------------------------------------*/
+/**
+ * GAME............This document defines the styles of game
+ */
+
+@import "./variable.scss";
+
+.game{
+
+    @include size(100%, 100vh);
+    @include max-size(1200px, 1000px);
+    position: relative;
+
+    .board{
+        @include size(300px, 300px);
+        // border:5px solid $white;
+        position:relative;
+        // box-sizing: content-box;
+
+        .cell{
+            @include size(100px, 100px);
+            display:inline-block;
+            line-height: 100px;
+            vertical-align: middle;
+            cursor:pointer;  
+            div{
+                @include size(100%, 100%);
+            }
+        }
+        .win-line{
+            @include size(300px, 300px);
+            position:absolute;
+            top:0px;
+            left:0px;
+            stroke: $blue-dark;
+            stroke-linecap: round;
+            stroke-width: 8px;
+        }
+
+    }
+
+    .icon{
+        path{
+            stroke-width: 5px;
+        }  
+    }
+
+    
+    .line{ 
+        position: absolute;
+        border-radius: 3px;
+    }
+    .row{
+        @include size(300px, 3px);
+        border-bottom: solid 3px $white;
+        top: 50%;
+    }
+    .row-first{
+        margin-top: -50px;
+    }
+    .row-second{
+        margin-top: 50px;
+    }
+    .col{
+        @include size(3px, 300px);
+        border-right: solid 3px $white;
+        left: 50%;
+    }
+    .col-first{
+        margin-left: -50px;
+    }
+    .col-second{
+        margin-left: 50px;
+    }
+}

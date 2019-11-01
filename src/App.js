@@ -3,6 +3,7 @@ import AppContextProvider from "./store/globalContext";
 
 import Navbar from "./components/Navbar";
 import Player from "./components/Player";
+import Game from "./components/Game";
 import Mask from "./components/Mask";
 
 import "./css/normalize.scss";
@@ -16,6 +17,7 @@ class App extends Component {
 					<Mask />
 					<Navbar />
 					<Player />
+					<Game />
 				</AppContextProvider>
 			</>
 		);

@@ -2,7 +2,6 @@ import React, { Component } from "react";
 
 import "../css/navbar.scss";
 
-
 class Navbar extends Component {
 
 	render(){

@@ -19,6 +19,7 @@ class Player extends Component {
         // 2.
         this.context.setMaskVisibility(false);
         this.context.setInitialVisibility(false);
+        
     };
 
 	render(){

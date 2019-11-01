@@ -4,13 +4,13 @@ import React,{ createContext, useState } from "react";
 const AppContextProvider = (props) => {
 
     // background mask
-    const [maskVisibility, setMask] = useState(true);
+    const [maskVisibility, setMask] = useState(false);
     const setMaskVisibility = (state) => {
         setMask(state);
     };
 
     // show initial block
-    const [initialBlockVisibility, setInitialBlockVisibility] = useState(true);
+    const [initialBlockVisibility, setInitialBlockVisibility] = useState(false);
     const setInitialVisibility = (state) => {
         setInitialBlockVisibility(state);
     };
