@@ -1,0 +1,55 @@
+/*------------------------------------*\
+    RESULT
+\*------------------------------------*/
+/**
+ * RESULT............This document defines the styles of result
+ */
+
+@import "./variable.scss";
+
+.result{
+    @include size(50%, 50vh);
+    @include max-size(300px, 200px);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px 3%;
+    background: url("../imgs/bak_2.png") no-repeat;
+    background-size: cover;
+    border-radius: 3px;
+    z-index: 101;
+    .title{
+        font-size: $font-xl;
+        color: transparent;
+        background: linear-gradient($blue, $green);
+        -webkit-background-clip: text;
+                background-clip: text;
+    }
+    .winner-mark{
+        position: absolute;
+        top: 50%;
+        right: -6px;
+        transform: rotate(10deg);
+    }
+    .winner{
+        font-size: $font-xxl;
+        color: $blue-dark;
+        margin: 20px 0px;
+        z-index: 10;
+    }
+    .winner-img{
+        position: absolute;
+        right: -50px;
+        bottom: 0px;
+        transform: rotate(10deg);
+    }
+    .btn{
+        @include size(120px, 40px);
+        border: none;
+        border-radius: 20px;
+        margin: 10px auto;
+        color: $white;
+        background: linear-gradient(135deg, $blue, $green);
+    }
+}

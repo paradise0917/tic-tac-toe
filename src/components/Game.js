@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { AppContext } from "../store/globalContext";
 
 import Cell from "./Cell";
 import Line from "./Line";
@@ -7,32 +8,90 @@ import "../css/game.scss";
 
 class Game extends Component {
 
-    state = {
-        round: 0, 
-        marks: [-1, 1, 0, -1, -1, -1, -1, -1, -1], // -1: Empty, 0: Circle, 1: Fork
-        winner: null 
-    };
+    static contextType = AppContext;
+    // state = {
+    //     round: 0, 
+    //     marks: [-1, 1, 0, -1, -1, -1, -1, -1, -1], // -1: Empty, 0: Circle, 1: Fork
+    //     winner: null 
+    // };
 
-    // Update content mark based on index
+    // componentDidMount = () => {
+    //     this.initGame();
+    // };
+
+    initGame = () => {
+        this.context.setGameInfo({
+            round: 0, 
+            marks: [-1, -1, -1, -1, -1, -1, -1, -1, -1],
+            winner: null 
+        });
+    }
+
+    /* Update content mark based on index
+     * Step1. check mark and prestate have no winner
+     * Step2. end the game if there is a winner after updating the mark
+     */
     updateMark = (index) => {
 
-        this.setState((preState)=>{
-            let currentMark = preState.marks[index];
-            /* check 
-             * 1. content is empty(-1)
-             * 2. no winner
-             */
-            if(currentMark === -1 && preState.winner === null) {
-                const mark = preState.round % 2; // base on round to check mark content
-                preState.marks[index] = mark;
-                const winner = this.checkWinner(preState.marks); 
-                return {
-                    round: preState.round + 1,
-                    marks: preState.marks,
-                    winner: winner
-                };
+        let currentMark = this.context.gameInfo.marks[index];
+        let nextMark = this.context.gameInfo.marks.slice();
+
+        console.log(this.context.gameInfo.round);
+        if(currentMark === -1 && this.context.gameInfo.winner === null) {
+
+            const mark = this.context.gameInfo.round % 2; // base on round to check mark content
+            nextMark[index] = mark;
+            const winner = this.checkWinner(nextMark); 
+
+            if( winner !== null){
+                setTimeout(() => {
+                    this.context.setWinnerInfo({winnerMark: winner.winnerMark});
+                    this.context.setMaskVisibility(true);
+                    this.context.setResultVisibility(true);
+                },500);
             }
-        });
+
+
+            this.context.setGameInfo({
+                round: this.context.gameInfo.round + 1,
+                marks: nextMark,
+                winner: winner
+            });
+
+            if(this.context.gameInfo.round >= 8){
+
+                setTimeout(() => {
+                    this.context.setWinnerInfo({winnerMark: -1});
+                    this.context.setMaskVisibility(true);
+                    this.context.setResultVisibility(true);
+                },500);
+                
+            }
+
+        }
+
+        // this.setState((preState)=>{
+        //     let currentMark = preState.marks[index];
+            
+        //     if(currentMark === -1 && preState.winner === null) {
+        //         const mark = preState.round % 2; // base on round to check mark content
+        //         preState.marks[index] = mark;
+        //         const winner = this.checkWinner(preState.marks); 
+        //         if( winner !== null){
+        //             setTimeout(() => {
+        //                 this.context.setWinnerInfo({winnerMark: winner.winnerMark});
+        //                 this.context.setMaskVisibility(true);
+        //                 this.context.setResultVisibility(true);
+        //             },500);
+        //         }
+
+        //         return {
+        //             round: preState.round + 1,
+        //             marks: preState.marks,
+        //             winner: winner
+        //         };
+        //     }
+        // });
     }
 
     /* Check have winner
@@ -69,16 +128,16 @@ class Game extends Component {
 
         let i = -1;
         let cells=[];
-        cells = this.state.marks.map(item => {
+        cells = this.context.gameInfo.marks.map(item => {
                 i++;
                 return (<Cell key={i} index={i} mark={item} update={this.updateMark} />);
             }
         );
 
-        if(this.state.winner !== null){
+        if(this.context.gameInfo.winner !== null){
             cells.push(<Line key="line" 
-                startIndex={this.state.winner.startIndex}
-                endIndex={this.state.winner.endIndex} />);
+                startIndex={this.context.gameInfo.winner.startIndex}
+                endIndex={this.context.gameInfo.winner.endIndex} />);
         }
         return (
             <div className="game flex flex-hor-center flex-ver-center">

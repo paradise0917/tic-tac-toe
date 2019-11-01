@@ -16,11 +16,22 @@ class Player extends Component {
      * Step3. Show the game content
      */
     startGame = () => {
+        // 1.
+        this.initGame();
         // 2.
         this.context.setMaskVisibility(false);
         this.context.setInitialVisibility(false);
         
     };
+
+    initGame = () => {
+        this.context.setWinnerInfo({winnerMark: ""});
+        this.context.setGameInfo({
+            round: 0, 
+            marks: [-1, -1, -1, -1, -1, -1, -1, -1, -1],
+            winner: null 
+        });
+    }
 
 	render(){
         const showPlayer = this.context.initialBlockVisibility === true ? "player flex flex-ver-center flex-flow-col" : "is-hidden-opacity";
@@ -32,7 +43,7 @@ class Player extends Component {
                         title="Player 1"
                         className="icon icon-first"
                         color="rgb(46,167,192)"
-                        size={0.8}/>
+                        size={1}/>
                     <input type="textbox" 
                         placeholder="First Player Name"
                         value={this.context.firstPlayer} 
@@ -43,7 +54,7 @@ class Player extends Component {
                         title="Player 2"
                         className="icon"
                         color="rgb(46,115,202)"
-                        size={1}/>
+                        size={1.2}/>
                     <input type="textbox" 
                         placeholder="Second Player Name"
                         value={this.context.secondPlayer} 
