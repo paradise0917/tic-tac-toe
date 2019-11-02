@@ -50,7 +50,7 @@ class Game extends Component {
                     },500);
                 }
 
-                if(preState.round >= 8){
+                if(preState.round > 8){
                     setTimeout(() => {
                         this.context.setWinnerInfo({winnerMark: -1});
                         this.context.setMaskVisibility(true);
