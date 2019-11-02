@@ -4,7 +4,7 @@ import "../css/navbar.scss";
 
 class Navbar extends Component {
 
-	render(){
+    render(){
         return (
             <div className="navbar flex flex-hor-center">
                 <div className="wrapper">
@@ -14,7 +14,7 @@ class Navbar extends Component {
                 </div>
             </div>
         );
-	}
+    }
 }
 
 export default Navbar;

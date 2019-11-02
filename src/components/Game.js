@@ -62,7 +62,7 @@ class Game extends Component {
                     round: preState.round + 1,
                     marks: preState.marks,
                     winner: winner
-                }
+                };
             });
         }
     }
@@ -107,9 +107,9 @@ class Game extends Component {
         let i = -1;
         let cells = [];
         cells = this.state.marks.map(item => {
-                i++;
-                return (<Cell key={i} index={i} mark={item} update={this.updateMark} />);
-            }
+            i++;
+            return (<Cell key={i} index={i} mark={item} update={this.updateMark} />);
+        }
         );
 
         if(this.state.winner !== null){

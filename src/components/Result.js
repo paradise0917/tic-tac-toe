@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { AppContext } from "../store/globalContext";
 
-import Icon from '@mdi/react'
-import { mdiCircleOutline, mdiClose } from '@mdi/js'
+import Icon from "@mdi/react";
+import { mdiCircleOutline, mdiClose } from "@mdi/js";
 import "../css/result.scss";
 
 class Result extends Component {
@@ -20,17 +20,17 @@ class Result extends Component {
         let playerName = "";
         let playerMark = "";
         switch(winnerMark){
-            case 0:
-                playerName = this.context.firstPlayer;
-                playerMark = <Icon path={mdiCircleOutline} title="Player 1" className="icon" color="rgb(46,167,192)" size={1.6}/>;
-                break;
-            case 1:
-                playerName = this.context.secondPlayer;
-                playerMark = <Icon path={mdiClose} title="Player 2" className="icon" color="rgb(46,115,202)" size={1.6}/>;
-                break;
-            default:
-                playerName = "Drawn Game";
-                break;
+        case 0:
+            playerName = this.context.firstPlayer;
+            playerMark = <Icon path={mdiCircleOutline} title="Player 1" className="icon" color="rgb(46,167,192)" size={1.6}/>;
+            break;
+        case 1:
+            playerName = this.context.secondPlayer;
+            playerMark = <Icon path={mdiClose} title="Player 2" className="icon" color="rgb(46,115,202)" size={1.6}/>;
+            break;
+        default:
+            playerName = "Drawn Game";
+            break;
         }
 
         return(<div className={resultStyle}>

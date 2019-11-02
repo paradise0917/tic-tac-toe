@@ -13,11 +13,11 @@ class Line extends Component{
         const endY = Math.floor(this.props.endIndex / 3);
 
         return (<svg className="win-line">
-                    <line x1={startX * 100 + 50} 
-                        y1={startY * 100 + 50} 
-                        x2={endX * 100 + 50} 
-                        y2={endY * 100 + 50} />
-                </svg>);
+            <line x1={startX * 100 + 50} 
+                y1={startY * 100 + 50} 
+                x2={endX * 100 + 50} 
+                y2={endY * 100 + 50} />
+        </svg>);
     }
 
 }

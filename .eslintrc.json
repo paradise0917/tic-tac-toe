@@ -14,6 +14,7 @@
         "Atomics": "readonly",
         "SharedArrayBuffer": "readonly"
     },
+    "parser": "babel-eslint",
     "parserOptions": {
         "ecmaFeatures": {
             "jsx": true
@@ -27,7 +28,7 @@
     "rules": {
         "indent": [
             "error",
-            "tab"
+            4
         ],
         "linebreak-style": [
             "error",
@@ -41,7 +42,9 @@
             "error",
             "always"
         ],
+        "react/prop-types": 0,
         "react/jsx-uses-react": "error",   
-        "react/jsx-uses-vars": "error" 
+        "react/jsx-uses-vars": "error",
+        "no-mixed-spaces-and-tabs": 0
     }
 }

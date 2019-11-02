@@ -7,11 +7,11 @@ class Mask extends Component {
 
     static contextType = AppContext;
 
-	render(){
+    render(){
         return (
             <div className={this.context.maskVisibility === true ? "mask" : "is-hidden-opacity"}></div>
         );
-	}
+    }
 }
 
 export default Mask;

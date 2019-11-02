@@ -3,8 +3,8 @@ import { AppContext } from "../store/globalContext";
 // Components
 import Game from "./Game";
 // Style
-import Icon from '@mdi/react'
-import { mdiCircleOutline, mdiClose } from '@mdi/js'
+import Icon from "@mdi/react";
+import { mdiCircleOutline, mdiClose } from "@mdi/js";
 import "../css/player.scss";
 
 class Player extends Component {
@@ -38,7 +38,7 @@ class Player extends Component {
         
     };
 
-	render(){
+    render(){
 
         if(this.state.renderView === "player"){
             const showPlayer = this.context.initialBlockVisibility === true ? "player flex flex-ver-center flex-flow-col" : "is-hidden-opacity";
@@ -55,7 +55,7 @@ class Player extends Component {
                             maxLength="8"
                             placeholder="First Player Name"
                             value={this.context.firstPlayer} 
-                            onChange={(e) => {this.context.setFirstPlayer(e.target.value)}}></input>
+                            onChange={(e) => {this.context.setFirstPlayer(e.target.value);}}></input>
                     </div>
                     <div className="player-name flex">
                         <Icon path={mdiClose}
@@ -67,7 +67,7 @@ class Player extends Component {
                             maxLength="8"
                             placeholder="Second Player Name"
                             value={this.context.secondPlayer} 
-                            onChange={(e) => {this.context.setSecondPlayer(e.target.value)}}></input>
+                            onChange={(e) => {this.context.setSecondPlayer(e.target.value);}}></input>
                     </div>
                     <button className="btn-start" onClick={this.startGame}>START</button>
                 </div>
@@ -77,7 +77,7 @@ class Player extends Component {
         }
 
         
-	}
+    }
 }
 
 export default Player;
