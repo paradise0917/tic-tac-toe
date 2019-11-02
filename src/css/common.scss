@@ -5,21 +5,12 @@
  * COMMON............This document defines the styles commonly used by this app
  * FLEXBOX...........Flexbox related style
  * STATE.............Specific state style
+ * BUTTON............Button related style
+ * OTHERS............Other style
  */
 
 @import "./variable.scss";
 
-body{
-    @include size(100%, 100vh);
-    background-color: $gray-light;
-}
-
-hr{
-    @include size(100%, 1px);
-    border: none;
-    background-color: $white-sub-2;
-    margin: 20px auto;
-}
 
 /*------------------------------------*\
     FLEXBOX
@@ -50,28 +41,6 @@ hr{
 }
 
 /*------------------------------------*\
-    BUTTON
-\*------------------------------------*/
-button{
-    transition: transform 0.2s ease-in-out;
-    cursor: pointer;
-}
-button:hover{
-    transform: translate(2px, 2px);
-}
-button:focus{
-    outline: none;
-}
-
-/*------------------------------------*\
-    
-\*------------------------------------*/
-.wrapper{
-    @include size(100%, 100%);
-    @include max-size(1200px, auto);
-}
-
-/*------------------------------------*\
     STATE
 \*------------------------------------*/
 .is-hidden{
@@ -92,4 +61,44 @@ button:focus{
     top: 0px;
     z-index: -1 !important;
     opacity: 0 !important;
+}
+
+
+/*------------------------------------*\
+    BUTTON
+\*------------------------------------*/
+button{
+    transition: transform 0.2s ease-in-out;
+    cursor: pointer;
+}
+button:hover{
+    transform: translate(2px, 2px);
+}
+button:focus{
+    outline: none;
+}
+
+/*------------------------------------*\
+    OTHERS
+\*------------------------------------*/
+*{
+    font-family: "Itim", cursive, "Microsoft JhengHei", sans-serif;
+    box-sizing: border-box;
+}
+
+body{
+    @include size(100%, 100vh);
+    background-color: $gray-light;
+}
+
+.wrapper{
+    @include size(100%, 100%);
+    @include max-size(1200px, auto);
+}
+
+hr{
+    @include size(100%, 1px);
+    border: none;
+    background-color: $white-sub-2;
+    margin: 20px auto;
 }
