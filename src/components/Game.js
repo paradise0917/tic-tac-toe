@@ -9,18 +9,18 @@ import "../css/game.scss";
 class Game extends Component {
 
     static contextType = AppContext;
-    // state = {
-    //     round: 0, 
-    //     marks: [-1, 1, 0, -1, -1, -1, -1, -1, -1], // -1: Empty, 0: Circle, 1: Fork
-    //     winner: null 
-    // };
+    state = {
+        round: 0, 
+        marks: [-1, -1, -1, -1, -1, -1, -1, -1, -1],
+        winner: null 
+    }
 
-    // componentDidMount = () => {
-    //     this.initGame();
-    // };
+    componentWillUnmount = () => {
+        this.initGame();
+    }
 
     initGame = () => {
-        this.context.setGameInfo({
+        this.setState({
             round: 0, 
             marks: [-1, -1, -1, -1, -1, -1, -1, -1, -1],
             winner: null 
@@ -30,68 +30,41 @@ class Game extends Component {
     /* Update content mark based on index
      * Step1. check mark and prestate have no winner
      * Step2. end the game if there is a winner after updating the mark
+     * Step3. end the game if there is round game
      */
     updateMark = (index) => {
 
-        let currentMark = this.context.gameInfo.marks[index];
-        let nextMark = this.context.gameInfo.marks.slice();
+        let currentMark = this.state.marks[index];
+        if(currentMark === -1 && this.state.winner === null) {
 
-        console.log(this.context.gameInfo.round);
-        if(currentMark === -1 && this.context.gameInfo.winner === null) {
+            this.setState(preState => {
+                const mark = preState.round % 2; // base on round to check mark content
+                preState.marks[index] = mark;
+                const winner = this.checkWinner(preState.marks); 
 
-            const mark = this.context.gameInfo.round % 2; // base on round to check mark content
-            nextMark[index] = mark;
-            const winner = this.checkWinner(nextMark); 
+                if( winner !== null){
+                    setTimeout(() => {
+                        this.context.setWinnerInfo({winnerMark: winner.winnerMark});
+                        this.context.setMaskVisibility(true);
+                        this.context.setResultVisibility(true);
+                    },500);
+                }
 
-            if( winner !== null){
-                setTimeout(() => {
-                    this.context.setWinnerInfo({winnerMark: winner.winnerMark});
-                    this.context.setMaskVisibility(true);
-                    this.context.setResultVisibility(true);
-                },500);
-            }
+                if(preState.round >= 8){
+                    setTimeout(() => {
+                        this.context.setWinnerInfo({winnerMark: -1});
+                        this.context.setMaskVisibility(true);
+                        this.context.setResultVisibility(true);
+                    },500);   
+                }
 
-
-            this.context.setGameInfo({
-                round: this.context.gameInfo.round + 1,
-                marks: nextMark,
-                winner: winner
+                return {
+                    round: preState.round + 1,
+                    marks: preState.marks,
+                    winner: winner
+                }
             });
-
-            if(this.context.gameInfo.round >= 8){
-
-                setTimeout(() => {
-                    this.context.setWinnerInfo({winnerMark: -1});
-                    this.context.setMaskVisibility(true);
-                    this.context.setResultVisibility(true);
-                },500);
-                
-            }
-
         }
-
-        // this.setState((preState)=>{
-        //     let currentMark = preState.marks[index];
-            
-        //     if(currentMark === -1 && preState.winner === null) {
-        //         const mark = preState.round % 2; // base on round to check mark content
-        //         preState.marks[index] = mark;
-        //         const winner = this.checkWinner(preState.marks); 
-        //         if( winner !== null){
-        //             setTimeout(() => {
-        //                 this.context.setWinnerInfo({winnerMark: winner.winnerMark});
-        //                 this.context.setMaskVisibility(true);
-        //                 this.context.setResultVisibility(true);
-        //             },500);
-        //         }
-
-        //         return {
-        //             round: preState.round + 1,
-        //             marks: preState.marks,
-        //             winner: winner
-        //         };
-        //     }
-        // });
     }
 
     /* Check have winner
@@ -124,28 +97,36 @@ class Game extends Component {
         return null;
     }
 
+    restartGame = () => {
+        this.context.setMaskVisibility(true);
+        this.context.setInitialVisibility(true);
+    }
+
     render(){
 
         let i = -1;
-        let cells=[];
-        cells = this.context.gameInfo.marks.map(item => {
+        let cells = [];
+        cells = this.state.marks.map(item => {
                 i++;
                 return (<Cell key={i} index={i} mark={item} update={this.updateMark} />);
             }
         );
 
-        if(this.context.gameInfo.winner !== null){
+        if(this.state.winner !== null){
             cells.push(<Line key="line" 
-                startIndex={this.context.gameInfo.winner.startIndex}
-                endIndex={this.context.gameInfo.winner.endIndex} />);
+                startIndex={this.state.winner.startIndex}
+                endIndex={this.state.winner.endIndex} />);
         }
         return (
             <div className="game flex flex-hor-center flex-ver-center">
-                <div className="line row row-first"></div>
-                <div className="line row row-second"></div>
-                <div className="line col col-first"></div>
-                <div className="line col col-second"></div>
-                <div className="board">{cells}</div>
+                <div className="wrapper flex flex-hor-center flex-ver-center">
+                    <div className="line row row-first"></div>
+                    <div className="line row row-second"></div>
+                    <div className="line col col-first"></div>
+                    <div className="line col col-second"></div>
+                    <div className="board">{cells}</div>
+                    <button className="btn-restart" onClick={this.restartGame}>RESTART</button>
+                </div>
             </div>);
     }
 }

@@ -69,7 +69,7 @@ button:focus{
 \*------------------------------------*/
 .wrapper{
     @include size(100%, 100%);
-    max-width: 1200px; 
+    @include max-size(1200px, auto);
 }
 
 /*------------------------------------*\

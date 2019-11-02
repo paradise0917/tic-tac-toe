@@ -32,10 +32,6 @@ class Result extends Component {
                 playerName = "Drawn Game";
                 break;
         }
-        // const playerName = this.context.winnerInfo.winnerMark === 0 ? this.context.firstPlayer : this.context.secondPlayer;
-        // const playerMark = this.context.winnerInfo.winnerMark === 0 ? (<Icon path={mdiCircleOutline} title="Player 1" className="icon" color="rgb(46,167,192)" size={1.6}/>):(
-        //     <Icon path={mdiClose} title="Player 2" className="icon" color="rgb(46,115,202)" size={1.6}/>
-        // );
 
         return(<div className={resultStyle}>
             <div className="title">YOU WIN</div>

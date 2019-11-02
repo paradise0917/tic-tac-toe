@@ -4,13 +4,13 @@ import React,{ createContext, useState } from "react";
 const AppContextProvider = (props) => {
 
     // background mask
-    const [maskVisibility, setMask] = useState(false);
+    const [maskVisibility, setMask] = useState(true);
     const setMaskVisibility = (state) => {
         setMask(state);
     };
 
     // initial block
-    const [initialBlockVisibility, setInitialBlockVisibility] = useState(false);
+    const [initialBlockVisibility, setInitialBlockVisibility] = useState(true);
     const setInitialVisibility = (state) => {
         setInitialBlockVisibility(state);
     };
@@ -24,13 +24,6 @@ const AppContextProvider = (props) => {
     const setSecondPlayer = (name) => {
         setSecondPlayerName(name);
     };
-
-    // game information
-    const [gameInfo, setGameInfo] = useState({
-        round: 0, 
-        marks: [-1, -1, -1, -1, -1, -1, -1, -1, -1], // -1: Empty, 0: Circle, 1: Fork
-        winner: null 
-    });
 
     // winner inforamtion
     const [winnerInfo, setWinnerInfo] = useState({winnerMark: ""});
@@ -49,8 +42,6 @@ const AppContextProvider = (props) => {
             initialBlockVisibility, setInitialVisibility,
             firstPlayer, setFirstPlayer,
             secondPlayer, setSecondPlayer,
-            // Game
-            gameInfo, setGameInfo,
             // Winner
             winnerInfo, setWinnerInfo,
             // Result

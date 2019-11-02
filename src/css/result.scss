@@ -8,7 +8,7 @@
 @import "./variable.scss";
 
 .result{
-    @include size(50%, 50vh);
+    @include size(70%, 80vh);
     @include max-size(300px, 200px);
     position: absolute;
     top: 50%;
@@ -51,5 +51,13 @@
         margin: 10px auto;
         color: $white;
         background: linear-gradient(135deg, $blue, $green);
+    }
+    @media (max-width: 500px){
+        .winner{
+            font-size: $font-xl;
+        }
+        .btn{
+            @include size(120px, 30px); 
+        }
     }
 }

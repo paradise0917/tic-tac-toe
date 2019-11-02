@@ -10,14 +10,11 @@
 .game{
 
     @include size(100%, 100vh);
-    @include max-size(1200px, 1000px);
     position: relative;
 
     .board{
         @include size(300px, 300px);
-        // border:5px solid $white;
         position:relative;
-        // box-sizing: content-box;
 
         .cell{
             @include size(100px, 100px);
@@ -41,13 +38,23 @@
 
     }
 
+    .btn-restart{
+        @include size(100px, 35px);
+        position: absolute;
+        bottom: 10%;
+        border: none;
+        border-radius: 20px;
+        font-weight: bolder;
+        color: $white;
+        background: linear-gradient(135deg, $blue, $green);
+    }
+
     .icon{
         path{
             stroke-width: 5px;
         }  
     }
 
-    
     .line{ 
         position: absolute;
         border-radius: 3px;

@@ -3,7 +3,6 @@ import AppContextProvider from "./store/globalContext";
 
 import Navbar from "./components/Navbar";
 import Player from "./components/Player";
-import Game from "./components/Game";
 import Result from "./components/Result";
 import Mask from "./components/Mask";
 
@@ -18,7 +17,6 @@ class App extends Component {
 					<Mask />
 					<Navbar />
 					<Player />
-					<Game />
 					<Result />
 				</AppContextProvider>
 			</>
