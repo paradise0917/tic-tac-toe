@@ -5,7 +5,7 @@
  * RESULT............This document defines the styles of result
  */
 
-@import "./variable.scss";
+@import "../common/variable.scss";
 
 .result{
     @include size(70%, 80vh);
@@ -15,7 +15,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 20px 3%;
-    background: url("../imgs/bak.png") no-repeat;
+    background: url("../../imgs/bak.png") no-repeat;
     background-size: cover;
     border-radius: 3px;
     z-index: 101;

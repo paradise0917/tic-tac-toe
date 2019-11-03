@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { AppContext } from "../store/globalContext";
+import { AppContext } from "../../store/globalContext";
 
-import "../css/mask.scss";
+import "./mask.scss";
 
 class Mask extends Component {
 

@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import { AppContext } from "../store/globalContext";
+import { AppContext } from "../../store/globalContext";
 // Components
 import Game from "./Game";
 // Style
 import Icon from "@mdi/react";
 import { mdiCircleOutline, mdiClose } from "@mdi/js";
-import "../css/player.scss";
+import "./player.scss";
 
 class Player extends Component {
 

@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import { AppContext } from "../store/globalContext";
+import { AppContext } from "../../store/globalContext";
 
 import Cell from "./Cell";
 import Line from "./Line";
 
-import "../css/game.scss";
+import "./game.scss";
 
 class Game extends Component {
 
@@ -13,18 +13,6 @@ class Game extends Component {
         round: 0, 
         marks: [-1, -1, -1, -1, -1, -1, -1, -1, -1],
         winner: null 
-    }
-
-    componentWillUnmount = () => {
-        this.initGame();
-    }
-
-    initGame = () => {
-        this.setState({
-            round: 0, 
-            marks: [-1, -1, -1, -1, -1, -1, -1, -1, -1],
-            winner: null 
-        });
     }
 
     /* Update content mark based on index
@@ -50,7 +38,7 @@ class Game extends Component {
                     },500);
                 }
 
-                if(preState.round > 8){
+                if(preState.round >= 8 && winner === null){
                     setTimeout(() => {
                         this.context.setWinnerInfo({winnerMark: -1});
                         this.context.setMaskVisibility(true);
@@ -104,11 +92,9 @@ class Game extends Component {
 
     render(){
 
-        let i = -1;
         let cells = [];
-        cells = this.state.marks.map(item => {
-            i++;
-            return (<Cell key={i} index={i} mark={item} update={this.updateMark} />);
+        cells = this.state.marks.map((item, index) => {
+            return (<Cell key={index} index={index} mark={item} update={this.updateMark} />);
         }
         );
 

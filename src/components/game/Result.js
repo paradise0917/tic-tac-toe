@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import { AppContext } from "../store/globalContext";
+import { AppContext } from "../../store/globalContext";
 
 import Icon from "@mdi/react";
 import { mdiCircleOutline, mdiClose } from "@mdi/js";
-import "../css/result.scss";
+import "./result.scss";
 
 class Result extends Component {
 
